@@ -1,0 +1,123 @@
+soong_namespace {}
+
+cc_defaults {
+    name: "dolby_vendor_defaults",
+    vendor: true,
+    compile_multilib: "64",
+    strip: { none: true },
+    system_shared_libs: [],
+}
+
+//
+// SOFT CODEC
+//
+
+cc_prebuilt_library_shared {
+    name: "libcodec2_soft_ac4dec",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/libcodec2_soft_ac4dec.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libcodec2_soft_ddpdec",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/libcodec2_soft_ddpdec.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libcodec2_soft_dolby",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/libcodec2_soft_dolby.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libcodec2_store_dolby",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/libcodec2_store_dolby.so"],
+}
+
+//
+// CORE DOLBY LIBS
+//
+
+cc_prebuilt_library_shared {
+    name: "libdapparamstorage",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/libdapparamstorage.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libdlbdsservice",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/libdlbdsservice.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libdlbpreg",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/libdlbpreg.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libdlbvol",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/libdlbvol.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "liboem_specific",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/liboem_specific.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libspatialaudio",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/libspatialaudio.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libswgamedap",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/libswgamedap.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libswgwe",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/libswgwe.so"],
+}
+
+//
+// DMS HAL
+//
+
+cc_prebuilt_library_shared {
+    name: "vendor.dolby.hardware.dms@2.0",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/vendor.dolby.hardware.dms@2.0.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.dolby.hardware.dms@2.0-impl",
+    defaults: ["dolby_vendor_defaults"],
+    srcs: ["proprietary/vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so"],
+}
+
+cc_prebuilt_binary {
+    name: "vendor.dolby.hardware.dms@2.0-service",
+    vendor: true,
+    srcs: ["proprietary/vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service"],
+    strip: { none: true },
+}
+
+//
+// DOLBY MEDIA C2
+//
+
+cc_prebuilt_binary {
+    name: "vendor.dolby.media.c2@1.0-service",
+    vendor: true,
+    srcs: ["proprietary/vendor/bin/hw/vendor.dolby.media.c2@1.0-service"],
+    strip: { none: true },
+}
